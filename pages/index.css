@@ -33,8 +33,9 @@
 @import url(../blocks/element/__container/element__container.css);
 @import url(../blocks/element/__likes-count/element__likes-count.css);
 
-@import url();
-@import url();
+/*footer*/
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/foorter__copyright.css);
 @import url();
 @import url();
 @import url();
