@@ -1,13 +1,28 @@
 .header__logo {
-    max-width: 142px;
-    max-height: 34px;
-  }
-  
-  
-  @media screen and (max-width: 374px) {
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    object-fit: cover;
+
+}
+
+@media screen and (max-width: 830px) {
     .header__logo {
-      max-width: 104px;
-      max-height: 24px;
-      margin-left: 27px;
+        max-width: 130px;
+        padding-top: 15px;
+        padding-bottom: 35px;
+
     }
-  }
+
+
+}
+
+@media screen and (max-width: 330px) {
+    .header__logo {
+        max-width: 110px;
+        padding-top: 30px;
+        padding-bottom: 25px;
+        padding-left: 15px;
+
+
+    }
+}

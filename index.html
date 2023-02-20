@@ -1,45 +1,117 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Место</title>
-  <meta name="description" content="Mesto: интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.">
-  <meta name="keywords" content="mesto, место, фото">
-  <meta name="author" content="Антон Кузнецов">
-  <link rel="stylesheet" href="./pages/index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Кузнецов Антон">
+    <meta description="Сайт карточек красочных мест">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body>
-  <div class="page">
-    <header class="header">
-      <img src="./images/header-logo.svg" class="header__logo" alt="Логотип Место">
-    </header>
-    <main class="content">
-      <section class="profile">
-        <div class="profile__container">
-          <button class="profile__edit-button-avatar">
-            <img src="./images/Avatar.gif" alt="Аватар" class="profile__avatar">
-          </button>
+
+<body class="content-background">
+    <div class="page">
+        <header class="header">
+            <a href="#"><img src="././images/logo.svg" class="header__logo" alt="Логотип"></a>
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img src="./images/avatar.jpg" class="profile__image" alt="Аватар пользователя">
+                <div class="profile__description">
+                    <div class="profile__info">
+                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <button type="button" class="profile__button"></button>
+                    </div>
+                    <p class="profile__text">Исследователь океана</p>
+                </div>
+                <button type="button" class="profile__add"> </button>
+            </section>
+            <section class="elements">
+                <ul class="list">
+                    <li class="list__description">
+                        <div class="list__place">
+                            <button type="button" class="list__trash-button"></button>
+                            <img class="list__image" alt="Карачаевск" src="./images/karachaevsk.jpg">
+                        </div>
+                        <div class="list__container">
+                            <h2 class="list__text">Карачаевск</h2>
+                            <button type="button" class="list__button"></button>
+                        </div>
+                    </li>
+                    <li class="list__description">
+                        <div class="list__place">
+                            <button type="button" class="list__trash-button"></button>
+                            <img class="list__image" alt="Гора Эльбрус" src="./images/elbrus.jpg">
+                        </div>
+                        <div class="list__container">
+                            <h2 class="list__text">Гора Эльбрус</h2>
+                            <button type="button" class="list__button"></button>
+                        </div>
+                    </li>
+                    <li class="list__description">
+                        <div class="list__place">
+                            <button type="button" class="list__trash-button"></button>
+                            <img class="list__image" alt="Домбай" src="./images/dombai.jpg">
+                        </div>
+                        <div class="list__container">
+                            <h2 class="list__text">Домбай</h2>
+                            <button type="button" class="list__button"></button>
+                        </div>
+                    </li>
+                    <li class="list__description">
+                        <div class="list__place">
+                            <button type="button" class="list__trash-button"></button>
+                            <img class="list__image" alt="Гора Эльбрус" src="./images/elbrus.jpg">
+                        </div>
+                        <div class="list__container">
+                            <h2 class="list__text">Гора Эльбрус</h2>
+                            <button type="button" class="list__button"></button>
+                        </div>
+                    </li>
+                    <li class="list__description">
+                        <div class="list__place">
+                            <button type="button" class="list__trash-button"></button>
+                            <img class="list__image" alt="Домбай" src="./images/dombai.jpg">
+                        </div>
+                        <div class="list__container">
+                            <h2 class="list__text">Домбай</h2>
+                            <button type="button" class="list__button"></button>
+                        </div>
+                    </li>
+                    <li class="list__description">
+                        <div class="list__place">
+                            <button type="button" class="list__trash-button"></button>
+                            <img class="list__image" alt="Карачаево-Черкесск" src="./images/karachaevsk.jpg">
+                        </div>
+                        <div class="list__container">
+                            <h2 class="list__text">Карачаево-Черкеск</h2>
+                            <button type="button" class="list__button"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__signature">&copy; 2022 Mesto Russia</p>
+        </footer>
+        <div class="popup popup_edit-profile">
+            <div class="popup__container">
+                <button type="button" class="popup__button-exit"></button>
+                <h2 class="popup__text">Редактировать профиль</h2>
+                <form name="profile__form" class="popup__form popup__form_profile" novalidate>
+                    <input type="text" class="popup__input popup__form-input_type_firstname" name="firstname"
+                        placeholder="Имя" minlength="2" maxlength="40" required />
+                    <input type="text" class="popup__input popup__form-input_type_proffesion" name="proffesion"
+                        placeholder="О себе" minlength="2" maxlength="200" required />
+                    <button type="submit" class="popup__button-save">Сохранить</button>
+                </form>
+            </div>
         </div>
-        <div class="profile__user-info">
-          <p class="profile__user-name">Загрузка...</p>
-          <button class="profile__edit-button">
-            <img src="./images/edit-image.svg" alt="Кнопка для изменения профиля"
-              class="profile__edit-image">
-          </button>
-          <p class="profile__user-description">Загрузка...</p>
-        </div>
-        <button class="profile__add-button">
-          <img src="./images/add-image.svg" alt="Кнопка для добавления новых записей"
-            class="profile__add-image">
-        </button>
-      </section>
-      <section class="elements">
-      </section>
-    </main>
-    
-  </div>
-  <script src="./scripts/script.js"></script>
+    </div>
+    <script defer src="./scripts/index.js"></script>
+
 </body>
+
 </html>
