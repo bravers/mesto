@@ -3,7 +3,7 @@
     width: 32px;
     height: 32px;
     right: -40px;
-    top: -35px;
+    top: -34px;
     background: url(../../../images/closeicon.svg);
     box-sizing: border-box;
     border: none;
@@ -25,6 +25,4 @@
         right: 0;
         background-size: cover;
     }
-
-
 }
