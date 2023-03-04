@@ -4,7 +4,7 @@
     box-sizing: border-box;
 
     border: none;
-    width: 28px;
+    width: 30px;
     height: 24px;
     background: black;
     display: flex;
@@ -12,7 +12,6 @@
     align-items: center;
     border: none;
     background-image: url("../../../images/editbuttons.svg");
-    background-repeat: no-repeat;
     object-fit: cover;
 }
 
@@ -26,8 +25,8 @@
     .profile__button{
         margin: 0;
         position: absolute;
-        width: 18px;
-        height: 18px;
+        width: 28px;
+        height: 24px;
         top: 8px;
         right: -28px;
     }
