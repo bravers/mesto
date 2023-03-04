@@ -10,7 +10,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
     background-image: url("../../../images/editbuttons.svg");
     object-fit: cover;
 }
