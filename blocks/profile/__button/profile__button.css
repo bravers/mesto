@@ -1,32 +1,30 @@
-.profile__button{
-    margin: 15px 0 0 18px;
-    padding: 0;
-    box-sizing: border-box;
-
-    border: none;
-    width: 30px;
+.profile__button {
+    background-image: url(../../../images/pen.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px 10px;
+    width: 24px;
     height: 24px;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../../../images/editbuttons.svg");
-    object-fit: cover;
-}
+    margin-top: 8px;
+    margin-left: 18px;
 
-.profile__button:hover{
-    opacity: 0.6;
-    transition: 0.2s ease;
+
     cursor: pointer;
-}
-
-@media (max-width: 740px){
-    .profile__button{
-        margin: 0;
-        position: absolute;
-        width: 28px;
-        height: 24px;
-        top: 8px;
-        right: -28px;
+    border: 1px solid #fff;
+    align-self:center;
+  }
+  
+  .profile__button:hover {
+    opacity: .6;
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 920px) {
+    .profile__button {
+      margin: 0 0 0 10px;
+      width: 18px;
+      height: 18px;
+      background-size: 7.5px 7.5px;
     }
+
 }
