@@ -22,6 +22,10 @@ function createCard(item) {
     cardImage.src = item.link;
     cardImage.alt = item.name;
 
+    cardData.querySelector('.list__trash-button').addEventListener('click', () => {
+        cardData.remove();
+    });
+
     cardData.querySelector('.list__button').addEventListener('click', () => {
         cardData.querySelector('.list__button').classList.toggle('list__button_active');
     });
