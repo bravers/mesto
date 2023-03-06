@@ -11,9 +11,7 @@ let jobInputForm = document.querySelector('.popup__form-desc');
 let profileName = document.querySelector('.profile__title');
 let profileJob = document.querySelector('.profile__text');
 
-initialCards
-    .map(createCard)
-    .forEach((card) => {
+initialCards.map(createCard).forEach((card) => {
         list.append(card);
     });
 
@@ -23,6 +21,11 @@ function createCard(item) {
     cardData.querySelector('.list__text').textContent = item.name;
     cardImage.src = item.link;
     cardImage.alt = item.name;
+
+    cardData.querySelector('.list__button').addEventListener('click', () => {
+        cardData.querySelector('.list__button').classList.toggle('list__button_active');
+    });
+
     return cardData;
 }
 
