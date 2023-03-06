@@ -31,62 +31,7 @@
                 <button aria-label="AddPlace" type="button" class="profile__add"> </button>
             </section>
             <section class="elements">
-                <ul class="list">
-                    <li class="list__description">
-                        <div class="list__place">
-                            <img class="list__image" alt="Карачаевск" src="./images/karachaevsk.jpg">
-                        </div>
-                        <div class="list__container">
-                            <h2 class="list__text">Карачаевск</h2>
-                            <button aria-label="Like" type="button" class="list__button"></button>
-                        </div>
-                    </li>
-                    <li class="list__description">
-                        <div class="list__place">
-                            <img class="list__image" alt="Гора Эльбрус" src="./images/elbrus.jpg">
-                        </div>
-                        <div class="list__container">
-                            <h2 class="list__text">Гора Эльбрус</h2>
-                            <button aria-label="Like" type="button" class="list__button"></button>
-                        </div>
-                    </li>
-                    <li class="list__description">
-                        <div class="list__place">
-                            <img class="list__image" alt="Домбай" src="./images/dombai.jpg">
-                        </div>
-                        <div class="list__container">
-                            <h2 class="list__text">Домбай</h2>
-                            <button aria-label="Like" type="button" class="list__button"></button>
-                        </div>
-                    </li>
-                    <li class="list__description">
-                        <div class="list__place">
-                            <img class="list__image" alt="Гора Эльбрус" src="./images/elbrus.jpg">
-                        </div>
-                        <div class="list__container">
-                            <h2 class="list__text">Гора Эльбрус</h2>
-                            <button aria-label="Like" type="button" class="list__button"></button>
-                        </div>
-                    </li>
-                    <li class="list__description">
-                        <div class="list__place">
-                            <img class="list__image" alt="Домбай" src="./images/dombai.jpg">
-                        </div>
-                        <div class="list__container">
-                            <h2 class="list__text">Домбай</h2>
-                            <button aria-label="Like" type="button" class="list__button"></button>
-                        </div>
-                    </li>
-                    <li class="list__description">
-                        <div class="list__place">
-                            <img class="list__image" alt="Карачаево-Черкесск" src="./images/karachaevsk.jpg">
-                        </div>
-                        <div class="list__container">
-                            <h2 class="list__text">Карачаево-Черкеск</h2>
-                            <button aria-label="Like" type="button" class="list__button"></button>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="list"></ul>
             </section>
         </main>
         <footer class="footer">
@@ -106,6 +51,22 @@
             </div>
         </div>
     </div>
+    <template id="list-template">
+        <li class="list__description">
+            <div class="list__place">
+                <img class="list__image" alt="card">
+            </div>
+            <div class="list__container">
+                <h2 class="list__text"></h2>
+                <button type="button" class="list__button"></button>
+            </div>
+        </li>
+    </template>
+
+
+
+
+    <script defer src="./scripts/base_cards.js"></script>
     <script defer src="./scripts/index.js"></script>
 
 </body>
