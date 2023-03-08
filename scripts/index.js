@@ -66,6 +66,10 @@ function createCard(item) {
     return cardData;
 }
 
+function popHide() {
+
+}
+
 function openPopup() {
     profilePopup.classList.add('popup_opened');
     nameInputForm.value = profileName.textContent;
