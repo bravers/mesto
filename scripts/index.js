@@ -25,7 +25,7 @@ initialCards.map(createCard).forEach((card) => {
         list.append(card);
     });
 
-    formPlace.addEventListener('submit', (evt) => {                        //добавление пользователем карточки на страницу
+    formPlace.addEventListener('submit', (evt) => {
         evt.preventDefault();
     
         const item = {
