@@ -19,9 +19,27 @@ let urlInput = document.querySelector('.popup__form-input_type_url');
 let formPlace = document.querySelector('.popup__form_place');
 let subBtnPlace = document.querySelector('.popup__button-save_place');
 
+
+
 initialCards.map(createCard).forEach((card) => {
         list.append(card);
     });
+
+    formPlace.addEventListener('submit', (evt) => {                        //добавление пользователем карточки на страницу
+        evt.preventDefault();
+    
+        const item = {
+            name: placeInput.value,
+            link: urlInput.value
+        }
+    
+        const card = createCard(item);
+        list.prepend(card);
+        placeInput.value = '';
+        urlInput.value = '';
+        closePlacePopup();
+    });
+
 
 function createCard(item) {
     const cardData = template.cloneNode(true);
@@ -53,9 +71,6 @@ function closePopup() {
 
 function openPlacePopup() {
     placePopupContainer.classList.add('popup_opened');
-    //cardPicture.src = itemlink;
-    titlePicture.textContent = itemname;
-    cardPicture.alt = itemname;
 }
 
 function closePlacePopup() {
