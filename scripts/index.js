@@ -14,8 +14,8 @@ let profileJob = document.querySelector('.profile__text');
 let placePopupContainer = document.querySelector('.popup_place');
 let btnOpenPlace = document.querySelector('.profile__add');
 let btnClosePlace = document.querySelector('.popup__button-exit_place');
-let placeInput = document.querySelector('.popup__form-input_type_placename');
-let urlInput = document.querySelector('.popup__form-input_type_url');
+let placeInput = document.querySelector('.popup__form-input-placename');
+let urlInput = document.querySelector('.popup__form-input-url');
 let formPlace = document.querySelector('.popup__form_place');
 let subBtnPlace = document.querySelector('.popup__button-save_place');
 
