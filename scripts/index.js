@@ -23,7 +23,7 @@ let picturePopupContainer = document.querySelector('.popup_picture');
 const cardPicture = document.querySelector('.popup__image');
 const titlePicture = document.querySelector('.popup__picture-text');
 const btnClosePicture = document.querySelector('.popup__button-exit_picture');
-console.log(picturePopupContainer);
+
 initialCards.map(createCard).forEach((card) => {
         list.append(card);
     });
