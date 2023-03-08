@@ -11,6 +11,14 @@ let jobInputForm = document.querySelector('.popup__form-desc');
 let profileName = document.querySelector('.profile__title');
 let profileJob = document.querySelector('.profile__text');
 
+let placePopupContainer = document.querySelector('.popup_place');
+let btnOpenPlace = document.querySelector('.profile__add');
+let btnClosePlace = document.querySelector('.popup__button-exit_place');
+let placeInput = document.querySelector('.popup__form-input_type_placename');
+let urlInput = document.querySelector('.popup__form-input_type_url');
+let formPlace = document.querySelector('.popup__form_place');
+let subBtnPlace = document.querySelector('.popup__button-save_place');
+
 initialCards.map(createCard).forEach((card) => {
         list.append(card);
     });
@@ -42,6 +50,18 @@ function openPopup() {
 function closePopup() {
     profilePopup.classList.remove('popup_opened');
 }
+
+function openPlacePopup() {
+    placePopupContainer.classList.add('popup_opened');
+    //cardPicture.src = itemlink;
+    titlePicture.textContent = itemname;
+    cardPicture.alt = itemname;
+}
+
+function closePlacePopup() {
+    placePopupContainer.classList.remove('popup_opened');
+}
+
 function handleFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInputForm.value;
@@ -51,3 +71,6 @@ function handleFormSubmit(evt) {
 profileButton.addEventListener('click', openPopup);
 closeProfileButton.addEventListener('click', closePopup);
 formProfile.addEventListener('submit', handleFormSubmit);
+
+btnOpenPlace.addEventListener('click', openPlacePopup);
+btnClosePlace.addEventListener('click', closePlacePopup);
