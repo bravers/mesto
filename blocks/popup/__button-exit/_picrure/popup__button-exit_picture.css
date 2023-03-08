@@ -6,10 +6,7 @@
     .popup__button-exit_picture {
         width: 19px;
         height: 19px;
-
     }
-
-
 }
 
 @media screen and (max-width: 480px) {
@@ -19,6 +16,4 @@
         right: 0;
 
     }
-
-
 }
