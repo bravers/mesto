@@ -1,52 +1,51 @@
 const template = document.querySelector('#list-template').content.querySelector('.list__description');
 const list = document.querySelector('.list')
 
-let profilePopup = document.querySelector('.popup');
-let profileContainer = document.querySelector('.profile');
-let profileButton = profileContainer.querySelector('.profile__button');
-let closeProfileButton = profilePopup.querySelector('.popup__button-exit');
-let formProfile = document.querySelector('.popup__form');
-let nameInputForm = document.querySelector('.popup__form-name');
-let jobInputForm = document.querySelector('.popup__form-desc');
-let profileName = document.querySelector('.profile__title');
-let profileJob = document.querySelector('.profile__text');
+const profilePopup = document.querySelector('.popup');
+const profileContainer = document.querySelector('.profile');
+const profileButton = profileContainer.querySelector('.profile__button');
+const formProfile = document.querySelector('.popup__form');
+const nameInputForm = document.querySelector('.popup__form-name');
+const jobInputForm = document.querySelector('.popup__form-desc');
+const profileName = document.querySelector('.profile__title');
+const profileJob = document.querySelector('.profile__text');
 
-let placePopupContainer = document.querySelector('.popup_place');
-let btnOpenPlace = document.querySelector('.profile__add');
-let btnClosePlace = document.querySelector('.popup__button-exit_place');
-let placeInput = document.querySelector('.popup__form-input-placename');
-let urlInput = document.querySelector('.popup__form-input-url');
-let formPlace = document.querySelector('.popup__form_place');
-let subBtnPlace = document.querySelector('.popup__button-save_place');
+const placePopupContainer = document.querySelector('.popup_place');
+const btnOpenPlace = document.querySelector('.profile__add');
+const placeInput = document.querySelector('.popup__form-input-placename');
+const urlInput = document.querySelector('.popup__form-input-url');
+const formPlace = document.querySelector('.popup__form_place');
+const subBtnPlace = document.querySelector('.popup__button-save_place');
 
-let picturePopupContainer = document.querySelector('.popup_picture');
+const picturePopupContainer = document.querySelector('.popup_picture');
 const cardPicture = document.querySelector('.popup__image');
 const titlePicture = document.querySelector('.popup__picture-text');
-const btnClosePicture = document.querySelector('.popup__button-exit_picture');
+const closeButtons = document.querySelectorAll('.popup__button-exit');
 
 initialCards.map(createCard).forEach((card) => {
-        list.append(card);
-    });
+    list.append(card);
+});
 
-    formPlace.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-    
-        const item = {
-            name: placeInput.value,
-            link: urlInput.value
-        }
-    
-        const card = createCard(item);
-        list.prepend(card);
-        placeInput.value = '';
-        urlInput.value = '';
-        closePlacePopup();
-    });
+formPlace.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    const item = {
+        name: placeInput.value,
+        link: urlInput.value
+    }
+
+    const card = createCard(item);
+    list.prepend(card);
+    placeInput.value = '';
+    urlInput.value = '';
+    closePlacePopup();
+});
 
 
 function createCard(item) {
     const cardData = template.cloneNode(true);
     const cardImage = cardData.querySelector('.list__image');
+    const likeButton = cardData.querySelector('.list__button');
     cardData.querySelector('.list__text').textContent = item.name;
     cardImage.src = item.link;
     cardImage.alt = item.name;
@@ -55,8 +54,8 @@ function createCard(item) {
         cardData.remove();
     });
 
-    cardData.querySelector('.list__button').addEventListener('click', () => {
-        cardData.querySelector('.list__button').classList.toggle('list__button_active');
+    likeButton.addEventListener('click', () => {
+        likeButton.classList.toggle('list__button_active');
     });
 
     cardImage.addEventListener('click', () => {
@@ -66,50 +65,56 @@ function createCard(item) {
     return cardData;
 }
 
-function popHide() {
-
-}
-
-function openPopup() {
-    profilePopup.classList.add('popup_opened');
+function openProfilePopup() {
     nameInputForm.value = profileName.textContent;
     jobInputForm.value = profileJob.textContent;
+    openPopup(profilePopup);
 }
 
-function closePopup() {
-    profilePopup.classList.remove('popup_opened');
+function closeProfilePopup() {
+    closePopup(profilePopup);
 }
 
 function openPlacePopup() {
-    placePopupContainer.classList.add('popup_opened');
+    openPopup(placePopupContainer);
 }
 
 function closePlacePopup() {
-    placePopupContainer.classList.remove('popup_opened');
+    closePopup( placePopupContainer);
+
 }
 
-function openPicturePopup(itemname, itemlink) { 
+function openPicturePopup(itemname, itemlink) {
     cardPicture.src = itemlink;
     titlePicture.textContent = itemname;
     cardPicture.alt = itemname;
-    picturePopupContainer.classList.add('popup_opened');
+    openPopup(picturePopupContainer);
 }
 
 function closePicturePopup() {
-    picturePopupContainer.classList.remove('popup_opened');
+    closePopup(picturePopupContainer);
 }
 
-function handleFormSubmit(evt) {
+function handleFormProfileSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInputForm.value;
     profileJob.textContent = jobInputForm.value;
-    closePopup();
+    closePopup(profilePopup);
 }
-profileButton.addEventListener('click', openPopup);
-closeProfileButton.addEventListener('click', closePopup);
-formProfile.addEventListener('submit', handleFormSubmit);
 
+function openPopup(popup) {
+    popup.classList.add('popup_opened');
+}
+
+function closePopup(popup) {
+    popup.classList.remove('popup_opened');
+}
+
+profileButton.addEventListener('click', openProfilePopup);
+formProfile.addEventListener('submit', handleFormProfileSubmit);
 btnOpenPlace.addEventListener('click', openPlacePopup);
-btnClosePlace.addEventListener('click', closePlacePopup);
 
-btnClosePicture.addEventListener('click', closePicturePopup);
+closeButtons.forEach((button) => {
+    const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+  });
