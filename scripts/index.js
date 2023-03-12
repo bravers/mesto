@@ -4,7 +4,7 @@ const list = document.querySelector('.list')
 const profilePopup = document.querySelector('.popup');
 const profileContainer = document.querySelector('.profile');
 const profileButton = profileContainer.querySelector('.profile__button');
-const formProfile = document.querySelector('.popup__form');
+const profileForm = document.forms["profile-form"];
 const nameInputForm = document.querySelector('.popup__form-name');
 const jobInputForm = document.querySelector('.popup__form-desc');
 const profileName = document.querySelector('.profile__title');
@@ -14,7 +14,7 @@ const placePopupContainer = document.querySelector('.popup_place');
 const btnOpenPlace = document.querySelector('.profile__add');
 const placeInput = document.querySelector('.popup__form-input-placename');
 const urlInput = document.querySelector('.popup__form-input-url');
-const formPlace = document.querySelector('.popup__form_place');
+const cardForm = document.forms["card-form"];
 const subBtnPlace = document.querySelector('.popup__button-save_place');
 
 const picturePopupContainer = document.querySelector('.popup_picture');
@@ -26,7 +26,7 @@ initialCards.map(createCard).forEach((card) => {
     list.append(card);
 });
 
-formPlace.addEventListener('submit', (evt) => {
+cardForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
     const item = {
@@ -36,8 +36,7 @@ formPlace.addEventListener('submit', (evt) => {
 
     const card = createCard(item);
     list.prepend(card);
-    placeInput.value = '';
-    urlInput.value = '';
+    evt.target.reset();
     closePlacePopup();
 });
 
@@ -76,6 +75,8 @@ function closeProfilePopup() {
 }
 
 function openPlacePopup() {
+    subBtnPlace.classList.add('popup__button_disabled');
+    subBtnPlace.setAttribute('disabled', 'disabled');
     openPopup(placePopupContainer);
 }
 
@@ -109,10 +110,11 @@ function openPopup(popup) {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeEscPopup);
 }
 
 profileButton.addEventListener('click', openProfilePopup);
-formProfile.addEventListener('submit', handleFormProfileSubmit);
+profileForm.addEventListener('submit', handleFormProfileSubmit);
 btnOpenPlace.addEventListener('click', openPlacePopup);
 
 closeButtons.forEach((button) => {
@@ -121,8 +123,8 @@ closeButtons.forEach((button) => {
 });
 
 function closeEscPopup(evt) {
-    const modalOpen = document.querySelector('.popup_opened');
     if (evt.key === 'Escape') {
+        const modalOpen = document.querySelector('.popup_opened');
         closePopup(modalOpen);
     }
 }
@@ -136,9 +138,6 @@ popupsAll.forEach((form) => {
 function closeOverlay(evt) {
     const popup = evt.currentTarget;
     if (evt.target === evt.currentTarget) {
-        closePopup(popup);
-    }
-    if (evt.target === popup.querySelector('.popup__button-exit')) {
         closePopup(popup);
     }
 }
