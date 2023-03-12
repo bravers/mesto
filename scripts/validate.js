@@ -14,7 +14,7 @@ const formsConfig = {
     inactiveButtonClass: 'popup__button_disabled',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible',
-    errorSpanSuffix: '__input-error'
+    errorSpanSuffix: '__input_error'
 };
 
 const enableValidation = (config) => {
