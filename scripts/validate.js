@@ -1,12 +1,3 @@
-/*enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
-  }); 
-*/
 const formsConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -18,9 +9,9 @@ const formsConfig = {
 };
 
 const enableValidation = (config) => {
-    const formSelector = Array.from(document.querySelectorAll(config.formSelector));
+    const formElements = Array.from(document.querySelectorAll(config.formSelector));
 
-    formSelector.forEach((form) => {
+    formElements.forEach((form) => {
         const inputElements = Array.from(form.querySelectorAll(config.inputSelector));
         inputElements.forEach((input, index, inputs) => {
             input.addEventListener('input', (evt) => {
@@ -66,10 +57,10 @@ const hasInvalidInput = (inputs) => {
 const toggleButtonState = (form, config, inputs) => {
     const submitButtonElement = form.querySelector(config.submitButtonSelector);
     if (hasInvalidInput(inputs)) {
-        submitButtonElement.classList.add('popup__button_disabled');
+        submitButtonElement.classList.add(config.inactiveButtonClass);
         submitButtonElement.setAttribute('disabled', 'disabled');
     } else {
-        submitButtonElement.classList.remove('popup__button_disabled');
+        submitButtonElement.classList.remove(config.inactiveButtonClass);
         submitButtonElement.removeAttribute('disabled');
     }
 }
