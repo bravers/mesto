@@ -80,7 +80,7 @@ function openPlacePopup() {
 }
 
 function closePlacePopup() {
-    closePopup( placePopupContainer);
+    closePopup(placePopupContainer);
 
 }
 
@@ -104,6 +104,7 @@ function handleFormProfileSubmit(evt) {
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeEscPopup);
 }
 
 function closePopup(popup) {
@@ -117,4 +118,27 @@ btnOpenPlace.addEventListener('click', openPlacePopup);
 closeButtons.forEach((button) => {
     const popup = button.closest('.popup');
     button.addEventListener('click', () => closePopup(popup));
-  });
+});
+
+function closeEscPopup(evt) {
+    const modalOpen = document.querySelector('.popup_opened');
+    if (evt.key === 'Escape') {
+        closePopup(modalOpen);
+    }
+}
+
+const popupsAll = Array.from(document.querySelectorAll('.popup'));
+popupsAll.forEach((form) => {
+    form.addEventListener('click', closeOverlay)
+});
+
+
+function closeOverlay(evt) {
+    const popup = evt.currentTarget;
+    if (evt.target === evt.currentTarget) {
+        closePopup(popup);
+    }
+    if (evt.target === popup.querySelector('.popup__button-exit')) {
+        closePopup(popup);
+    }
+}
