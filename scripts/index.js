@@ -80,7 +80,7 @@ function openPlacePopup() {
 }
 
 function closePlacePopup() {
-    closePopup( placePopupContainer);
+    closePopup(placePopupContainer);
 
 }
 
@@ -117,4 +117,20 @@ btnOpenPlace.addEventListener('click', openPlacePopup);
 closeButtons.forEach((button) => {
     const popup = button.closest('.popup');
     button.addEventListener('click', () => closePopup(popup));
-  });
+});
+
+const popupsAll = Array.from(document.querySelectorAll('.popup'));
+popupsAll.forEach((form) => {
+    form.addEventListener('click', closeOverlay)
+});
+
+
+function closeOverlay(evt) {
+    const popup = evt.currentTarget;
+    if (evt.target === evt.currentTarget) {
+        closePopup(popup);
+    }
+    if (evt.target === popup.querySelector('.popup__button-exit')) {
+        closePopup(popup);
+    }
+}
