@@ -1,40 +1,38 @@
 export default class Card {
-    constructor(name, link, templateSelector, onClickFunction) {
+    constructor(name, link, templateElement, onClickFunction) {
         this._name = name;
         this._link = link;
-        this._templateSelector = templateSelector;
+        this._templateElement = templateElement;
         this._onClickFunction = onClickFunction;
 
     }
     //метод создания карточки
     createCard() {
-        const cardElement = this._templateSelector.content.querySelector('.list__description').cloneNode(true);
-        const cardImage = cardElement.querySelector('.list__image');
-        this._likeButton = cardElement.querySelector('.list__button');
-        cardElement.querySelector('.list__text').textContent = this._name;
-        cardImage.src = this._link;
-        cardImage.alt = this._name;
-        this._setEventListeners(cardElement, cardImage);
-
-        return cardElement;
+        this._cardElement = this._templateElement.content.querySelector('.list__description').cloneNode(true);
+        this._cardImage = this._cardElement.querySelector('.list__image');
+        this._likeButton = this._cardElement.querySelector('.list__button');
+        this._cardElement.querySelector('.list__text').textContent = this._name;
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
+        this._setEventListeners();
+        return this._cardElement;
     }
 
-
-    _setEventListeners(cardElement, cardImage) {
-        cardElement.querySelector('.list__trash-button').addEventListener('click', () => {
-            this._deleteCard(cardElement);
+    _setEventListeners() {
+        this._cardElement.querySelector('.list__trash-button').addEventListener('click', () => {
+            this._deleteCard();
         });
         this._likeButton.addEventListener('click', () => {
-            this._toggleLike(cardElement);
+            this._toggleLike();
         });
-        cardImage.addEventListener('click', () => {
+        this._cardImage.addEventListener('click', () => {
             this._handleImageClick();
         })
     };
 
 
-    _deleteCard(cardElement) {
-        cardElement.remove();
+    _deleteCard() {
+        this._cardElement.remove();
     }
     _toggleLike() {
         this._likeButton.classList.toggle('list__button_active');
